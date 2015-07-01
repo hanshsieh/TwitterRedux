@@ -49,6 +49,7 @@
                     <include reference="cbI-34-Hgb"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="125" y="135"/>
         </view>
     </objects>
 </document>

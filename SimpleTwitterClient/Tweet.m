@@ -20,6 +20,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
         self.createdAt = [formatter dateFromString:createdAtString];
+        self.id = dictionary[@"id_str"];
     }
     return self;
 }

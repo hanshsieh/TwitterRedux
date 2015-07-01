@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTweetViewController">
+            <connections>
+                <outlet property="screenNameLabel" destination="Rb4-Kd-hGa" id="l4b-Hg-ePT"/>
+                <outlet property="tweetText" destination="67r-ri-TXZ" id="1dp-kY-dSk"/>
+                <outlet property="userImage" destination="EAi-6e-0o5" id="Ufs-iA-OnF"/>
+                <outlet property="userName" destination="Fax-ag-buy" id="Rrd-Gu-R4k"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcF-3A-zZw">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-6e-0o5">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="5WR-w1-Ee4"/>
+                                <constraint firstAttribute="width" constant="60" id="dKd-oU-jH7"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="5WR-w1-Ee4"/>
+                                    <exclude reference="dKd-oU-jH7"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="5WR-w1-Ee4"/>
+                                    <include reference="dKd-oU-jH7"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fax-ag-buy">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screenName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb4-Kd-hGa">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.44600637335526316" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="EAi-6e-0o5" firstAttribute="leading" secondItem="HcF-3A-zZw" secondAttribute="leading" constant="8" id="1eR-sO-bQ3"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rb4-Kd-hGa" secondAttribute="trailing" constant="8" id="5yH-i6-joX"/>
+                        <constraint firstItem="Rb4-Kd-hGa" firstAttribute="leading" secondItem="EAi-6e-0o5" secondAttribute="trailing" constant="8" id="CfA-Qv-4YR"/>
+                        <constraint firstItem="Rb4-Kd-hGa" firstAttribute="top" secondItem="Fax-ag-buy" secondAttribute="bottom" constant="8" id="KAd-rl-rQy"/>
+                        <constraint firstItem="EAi-6e-0o5" firstAttribute="top" secondItem="HcF-3A-zZw" secondAttribute="top" constant="8" id="OA9-4L-Bo1"/>
+                        <constraint firstItem="Fax-ag-buy" firstAttribute="leading" secondItem="EAi-6e-0o5" secondAttribute="trailing" constant="8" id="Tqt-R5-pfc"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fax-ag-buy" secondAttribute="trailing" constant="8" id="Tvs-uy-2e3"/>
+                        <constraint firstItem="Fax-ag-buy" firstAttribute="top" secondItem="HcF-3A-zZw" secondAttribute="top" constant="12" id="fcs-UO-B91"/>
+                        <constraint firstItem="Rb4-Kd-hGa" firstAttribute="top" secondItem="HcF-3A-zZw" secondAttribute="top" constant="8" id="gMR-YS-TKs"/>
+                        <constraint firstAttribute="bottom" secondItem="EAi-6e-0o5" secondAttribute="bottom" constant="8" id="mQd-KU-Bxx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="EAi-6e-0o5"/>
+                            <exclude reference="Fax-ag-buy"/>
+                            <exclude reference="Rb4-Kd-hGa"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="1eR-sO-bQ3"/>
+                            <exclude reference="OA9-4L-Bo1"/>
+                            <exclude reference="mQd-KU-Bxx"/>
+                            <exclude reference="Tqt-R5-pfc"/>
+                            <exclude reference="Tvs-uy-2e3"/>
+                            <exclude reference="fcs-UO-B91"/>
+                            <exclude reference="5yH-i6-joX"/>
+                            <exclude reference="CfA-Qv-4YR"/>
+                            <exclude reference="KAd-rl-rQy"/>
+                            <exclude reference="gMR-YS-TKs"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="EAi-6e-0o5"/>
+                            <include reference="Fax-ag-buy"/>
+                            <include reference="Rb4-Kd-hGa"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="1eR-sO-bQ3"/>
+                            <include reference="OA9-4L-Bo1"/>
+                            <include reference="mQd-KU-Bxx"/>
+                            <include reference="Tqt-R5-pfc"/>
+                            <include reference="Tvs-uy-2e3"/>
+                            <include reference="fcs-UO-B91"/>
+                            <include reference="5yH-i6-joX"/>
+                            <include reference="CfA-Qv-4YR"/>
+                            <include reference="KAd-rl-rQy"/>
+                            <exclude reference="gMR-YS-TKs"/>
+                        </mask>
+                    </variation>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67r-ri-TXZ">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.96729008838383834" green="0.96729008838383834" blue="0.96729008838383834" alpha="1" colorSpace="calibratedRGB"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="67r-ri-TXZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="7Ei-3s-aEL"/>
+                <constraint firstAttribute="trailing" secondItem="HcF-3A-zZw" secondAttribute="trailing" id="8fw-bI-Jjj"/>
+                <constraint firstItem="HcF-3A-zZw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AlA-ix-7oc"/>
+                <constraint firstItem="HcF-3A-zZw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="KSj-EU-mCr"/>
+                <constraint firstAttribute="trailing" secondItem="67r-ri-TXZ" secondAttribute="trailing" constant="8" id="dyg-Wh-iW5"/>
+                <constraint firstItem="67r-ri-TXZ" firstAttribute="top" secondItem="HcF-3A-zZw" secondAttribute="bottom" constant="8" id="jYj-Fo-NzS"/>
+                <constraint firstAttribute="bottom" secondItem="67r-ri-TXZ" secondAttribute="bottom" constant="8" id="xMA-fG-y6a"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="HcF-3A-zZw"/>
+                    <exclude reference="67r-ri-TXZ"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="8fw-bI-Jjj"/>
+                    <exclude reference="AlA-ix-7oc"/>
+                    <exclude reference="KSj-EU-mCr"/>
+                    <exclude reference="7Ei-3s-aEL"/>
+                    <exclude reference="dyg-Wh-iW5"/>
+                    <exclude reference="jYj-Fo-NzS"/>
+                    <exclude reference="xMA-fG-y6a"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="HcF-3A-zZw"/>
+                    <include reference="67r-ri-TXZ"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="8fw-bI-Jjj"/>
+                    <include reference="AlA-ix-7oc"/>
+                    <include reference="KSj-EU-mCr"/>
+                    <include reference="7Ei-3s-aEL"/>
+                    <include reference="dyg-Wh-iW5"/>
+                    <include reference="jYj-Fo-NzS"/>
+                    <include reference="xMA-fG-y6a"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="235" y="316"/>
+        </view>
+    </objects>
+</document>

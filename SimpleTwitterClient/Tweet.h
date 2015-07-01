@@ -10,7 +10,7 @@
 #import "User.h"
 
 @interface Tweet : NSObject
-
+@property (nonatomic, strong) NSString* id;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) User *user;
