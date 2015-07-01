@@ -20,7 +20,6 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
         self.createdAt = [formatter dateFromString:createdAtString];
-        NSLog(@"tween created at %@", self.createdAt);
     }
     return self;
 }

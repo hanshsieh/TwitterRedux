@@ -10,4 +10,6 @@
 
 @interface TweetsViewController : UIViewController
 
++ (UIViewController *)viewControllerWithNaviBar;
+
 @end

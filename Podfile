@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 target 'SimpleTwitterClient' do
 pod "BDBOAuth1Manager"
+pod "AFNetworking"
 end
 
 target 'SimpleTwitterClientTests' do

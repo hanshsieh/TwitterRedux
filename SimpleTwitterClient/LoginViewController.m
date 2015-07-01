@@ -30,7 +30,7 @@
     [client loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome %@", user.name);
-            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
+            [self presentViewController:[TweetsViewController viewControllerWithNaviBar] animated:YES completion:nil];
         } else {
             NSLog(@"Fail to login: %@", error);
         }
