@@ -15,7 +15,7 @@
 #import "NewTweetViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsList;
 @property (strong, nonatomic) NSArray *tweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -117,6 +117,7 @@ NSString * const TWEET_CELL = @"TweetCell";
     
     NSString *stringFromDate = [formatter stringFromDate:tweet.createdAt];
     cell.timestampLabel.text = stringFromDate;
+    cell.delegate = self;
     return cell;
 }
 
@@ -135,6 +136,31 @@ NSString * const TWEET_CELL = @"TweetCell";
     Tweet *tweet = self.tweets[indexPath.row];
     UIViewController *vc = [TweetDetailsViewController viewControllerWithNaviBar:tweet];
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark Tweet operations
+
+- (void)replyTweetForCell:(TweetCell*)cell {
+    NSIndexPath *indexPath = [self.tweetsList indexPathForCell:cell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self presentViewController:[NewTweetViewController viewControllerWithNaviBarForTweet:tweet type:NewTweetTypeReply] animated:YES completion:nil];
+}
+- (void)retweetTweetForCell:(TweetCell*)cell {
+    NSIndexPath *indexPath = [self.tweetsList indexPathForCell:cell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    [self presentViewController:[NewTweetViewController viewControllerWithNaviBarForTweet:tweet type:NewTweetTypeRetweet] animated:YES completion:nil];
+}
+- (void)favoriteTweetForCell:(TweetCell*)cell {
+    NSIndexPath *indexPath = [self.tweetsList indexPathForCell:cell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    TwitterClient *client = [TwitterClient sharedInstance];
+    [client createFavoriteForStatus:tweet.id completion:^(NSDictionary *body, NSError *error) {
+        if (error != nil) {
+            NSLog(@"Fail to create favorite: %@", error);
+        } else {
+            NSLog(@"Favorite created!");
+        }
+    }];
 }
 
 /*
