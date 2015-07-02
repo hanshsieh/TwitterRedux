@@ -28,6 +28,6 @@ Time spent: `8 hr`
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](http://youtu.be/zsA3ftZlG1o)
 
 
