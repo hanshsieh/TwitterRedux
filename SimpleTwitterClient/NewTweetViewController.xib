@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTweetViewController">
             <connections>
+                <outlet property="retweetText" destination="MDE-is-TUl" id="fTv-2Y-vkW"/>
                 <outlet property="screenNameLabel" destination="Rb4-Kd-hGa" id="l4b-Hg-ePT"/>
                 <outlet property="tweetText" destination="67r-ri-TXZ" id="1dp-kY-dSk"/>
                 <outlet property="userImage" destination="EAi-6e-0o5" id="Ufs-iA-OnF"/>
@@ -112,21 +113,45 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" editable="NO" text="Content for the tweet being retweetffdfdfdfdfdfdf" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDE-is-TUl">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.96504103535353536" green="0.96504103535353536" blue="0.96504103535353536" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Rol-Tk-btq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Rol-Tk-btq"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Rol-Tk-btq"/>
+                        </mask>
+                    </variation>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="67r-ri-TXZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="7Ei-3s-aEL"/>
                 <constraint firstAttribute="trailing" secondItem="HcF-3A-zZw" secondAttribute="trailing" id="8fw-bI-Jjj"/>
                 <constraint firstItem="HcF-3A-zZw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AlA-ix-7oc"/>
+                <constraint firstAttribute="trailing" secondItem="MDE-is-TUl" secondAttribute="trailing" constant="8" id="Cqc-pc-rFH"/>
                 <constraint firstItem="HcF-3A-zZw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="KSj-EU-mCr"/>
                 <constraint firstAttribute="trailing" secondItem="67r-ri-TXZ" secondAttribute="trailing" constant="8" id="dyg-Wh-iW5"/>
+                <constraint firstItem="MDE-is-TUl" firstAttribute="top" secondItem="67r-ri-TXZ" secondAttribute="bottom" constant="8" id="iNK-SS-8mY"/>
                 <constraint firstItem="67r-ri-TXZ" firstAttribute="top" secondItem="HcF-3A-zZw" secondAttribute="bottom" constant="8" id="jYj-Fo-NzS"/>
+                <constraint firstAttribute="bottom" secondItem="MDE-is-TUl" secondAttribute="bottom" constant="8" id="mll-8F-wml"/>
+                <constraint firstItem="MDE-is-TUl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="w4F-dk-rwp"/>
                 <constraint firstAttribute="bottom" secondItem="67r-ri-TXZ" secondAttribute="bottom" constant="8" id="xMA-fG-y6a"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="HcF-3A-zZw"/>
                     <exclude reference="67r-ri-TXZ"/>
+                    <exclude reference="MDE-is-TUl"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="8fw-bI-Jjj"/>
@@ -136,12 +161,17 @@
                     <exclude reference="dyg-Wh-iW5"/>
                     <exclude reference="jYj-Fo-NzS"/>
                     <exclude reference="xMA-fG-y6a"/>
+                    <exclude reference="Cqc-pc-rFH"/>
+                    <exclude reference="iNK-SS-8mY"/>
+                    <exclude reference="mll-8F-wml"/>
+                    <exclude reference="w4F-dk-rwp"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="HcF-3A-zZw"/>
                     <include reference="67r-ri-TXZ"/>
+                    <include reference="MDE-is-TUl"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="8fw-bI-Jjj"/>
@@ -150,7 +180,11 @@
                     <include reference="7Ei-3s-aEL"/>
                     <include reference="dyg-Wh-iW5"/>
                     <include reference="jYj-Fo-NzS"/>
-                    <include reference="xMA-fG-y6a"/>
+                    <exclude reference="xMA-fG-y6a"/>
+                    <include reference="Cqc-pc-rFH"/>
+                    <include reference="iNK-SS-8mY"/>
+                    <include reference="mll-8F-wml"/>
+                    <include reference="w4F-dk-rwp"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="235" y="316"/>

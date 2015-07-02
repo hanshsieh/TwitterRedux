@@ -55,6 +55,7 @@
                                                                              action:@selector(replyTweet)];
     [self.replyBtn addTarget:self action:@selector(replyTweet) forControlEvents:UIControlEventTouchUpInside];
     [self.favoriteBtn addTarget:self action:@selector(createFavorite) forControlEvents:UIControlEventTouchUpInside];
+    [self.retweetBtn addTarget:self action:@selector(createRetweet) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)createFavorite {
@@ -73,8 +74,11 @@
 }
 
 - (void)replyTweet {
-    NSString *text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
-    [self presentViewController:[NewTweetViewController viewControllerWithNaviBar:text] animated:YES completion:nil];
+    [self presentViewController:[NewTweetViewController viewControllerWithNaviBarForTweet:self.tweet type:NewTweetTypeReply] animated:YES completion:nil];
+}
+
+- (void)createRetweet {
+    [self presentViewController:[NewTweetViewController viewControllerWithNaviBarForTweet:self.tweet type:NewTweetTypeRetweet] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

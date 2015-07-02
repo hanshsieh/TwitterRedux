@@ -74,7 +74,7 @@ NSString * const TWEET_CELL = @"TweetCell";
 }
 
 - (void)newTweet {
-    [self presentViewController:[NewTweetViewController viewControllerWithNaviBar:nil] animated:YES completion:nil];
+    [self presentViewController:[NewTweetViewController viewControllerWithNaviBar] animated:YES completion:nil];
 }
 
 #pragma mark Load tweets

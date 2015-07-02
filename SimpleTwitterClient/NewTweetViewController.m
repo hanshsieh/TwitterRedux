@@ -15,23 +15,39 @@
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UITextView *tweetText;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (assign, nonatomic) NewTweetType tweetType;
+@property (strong, nonatomic) Tweet *baseTweet;
+@property (weak, nonatomic) IBOutlet UITextView *retweetText;
 
 @end
 
 @implementation NewTweetViewController
 
-+ (UIViewController *)viewControllerWithNaviBar:(NSString*)initialTweetText {
++ (UIViewController *)viewControllerWithNaviBar {
+    return [self viewControllerWithNaviBarForTweet:nil type:NewTweetTypeNormal];
+}
+
++ (UIViewController *)viewControllerWithNaviBarForTweet:(Tweet*) baseTweet type:(NewTweetType)tweetType; {
     NewTweetViewController *newTweetsVC = [[NewTweetViewController alloc] init];
-    newTweetsVC.initialTweetText = initialTweetText;
+    newTweetsVC.baseTweet = baseTweet;
+    newTweetsVC.tweetType = tweetType;
     return [[UINavigationController alloc] initWithRootViewController:newTweetsVC];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.initialTweetText == nil) {
-        self.tweetText.text = @"";
-    } else {
-        self.tweetText.text = self.initialTweetText;
+    self.retweetText.hidden = YES;
+    self.tweetText.text = @"";
+    switch (self.tweetType) {
+        case NewTweetTypeNormal:
+            break;
+        case NewTweetTypeReply:
+            self.tweetText.text = [NSString stringWithFormat:@"@%@ ", self.baseTweet.user.screenName];
+            break;
+        case NewTweetTypeRetweet:
+            self.retweetText.hidden = NO;
+            self.retweetText.text = [NSString stringWithFormat:@"Base tweet: %@", self.baseTweet.text];
+            break;
     }
     User *currentUser = [User currentUser];
     [self.userImage setImageWithURL:[NSURL URLWithString:currentUser.profileImageUrl]];
@@ -57,8 +73,19 @@
             NSLog(@"Fail to create a tweet: %@", error);
             return;
         }
-        NSLog(@"Tweet id: %@", response[@"id"]);
-        [self dismissViewControllerAnimated:YES completion:nil];
+        NSLog(@"New tweet id: %@", response[@"id"]);
+        if (self.tweetType == NewTweetTypeRetweet) {
+            [client retweetForStatus:self.baseTweet.id completion:^(NSDictionary *body, NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Fail to increase retweet count: %@", error);
+                    return;
+                }
+                NSLog(@"Successfully increase the retweet count");
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }];
 }
 

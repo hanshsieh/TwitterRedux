@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Tweet.h"
+
+typedef NS_ENUM(NSInteger, NewTweetType) {
+    NewTweetTypeNormal,
+    NewTweetTypeReply,
+    NewTweetTypeRetweet
+};
 
 @interface NewTweetViewController : UIViewController
-@property (nonatomic, strong) NSString* initialTweetText;
-+ (UIViewController *)viewControllerWithNaviBar:(NSString*)initialTweetText;
++ (UIViewController *)viewControllerWithNaviBar;
++ (UIViewController *)viewControllerWithNaviBarForTweet:(Tweet*) baseTweet type:(NewTweetType)tweetType;
 @end

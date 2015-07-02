@@ -14,6 +14,7 @@
 - (void)loginWithCompletion:(void (^)(User *user, NSError *error))completion;
 - (void)openURL:(NSURL*) url;
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
+- (void)retweetForStatus:(NSString*)statusId completion:(void(^)(NSDictionary *body, NSError *error)) completion;
 - (void)updateStatus:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion;
 - (void)createFavoriteForStatus:(NSString *)statusId completion:(void(^)(NSDictionary *body, NSError *error)) completion;
 @end

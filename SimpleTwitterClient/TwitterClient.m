@@ -83,6 +83,16 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
 
 }
 
+- (void)retweetForStatus:(NSString*)statusId completion:(void(^)(NSDictionary *body, NSError *error)) completion {
+    NSString *url = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", statusId];
+    [self POST:url parameters: nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(responseObject, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
+    
+}
+
 - (void)updateStatus:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion {
     NSString *url = @"1.1/statuses/update.json";
     NSDictionary *params = @{
@@ -91,6 +101,7 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     [self POST:url parameters: params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completion(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request with URL: %@", operation.request.URL);
         completion(nil, error);
     }];
 }
@@ -108,9 +119,9 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     NSDictionary *params = @{
                              @"id": statusId
                              };
-    //NSString *url = [NSString stringWithFormat:@"1.1/favorites/create.json?id=%@", statusId];
     NSString *url = @"1.1/favorites/create.json";
     [self POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Request with URL: %@", operation.request.URL);
         completion(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         completion(nil, error);
