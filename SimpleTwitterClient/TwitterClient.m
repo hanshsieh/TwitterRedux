@@ -93,12 +93,31 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     
 }
 
-- (void)updateStatus:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion {
+- (void)retweetForTweet:(Tweet*)tweet status:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion {
+    [self retweetForStatus:tweet.id completion:^(NSDictionary *body, NSError *error) {
+        if (error != nil) {
+            completion(nil, error);
+            return;
+        }
+        [self updateStatus:status parameters:nil completion:^(NSDictionary *response, NSError *error) {
+            completion(response, error);
+        }];
+    }];
+}
+
+- (void)replyForTweet:(Tweet*)tweet status:(NSString*)status completion:(void(^)(NSDictionary *body, NSError *error)) completion {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:tweet.user.name forKey:@"in_reply_to_status_id"];
+    [self updateStatus:status parameters:params completion:^(NSDictionary *response, NSError *error) {
+        completion(response, error);
+    }];
+}
+
+- (void)updateStatus:(NSString *)status parameters: (NSDictionary*)params completion:(void(^)(NSDictionary *body, NSError *error)) completion {
     NSString *url = @"1.1/statuses/update.json";
-    NSDictionary *params = @{
-                                @"status": status
-                             };
-    [self POST:url parameters: params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableDictionary *allParams = params == nil ? [NSMutableDictionary dictionary] : [params mutableCopy];
+    [allParams setObject:status forKey:@"status"];
+    [self POST:url parameters: allParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completion(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Request with URL: %@", operation.request.URL);

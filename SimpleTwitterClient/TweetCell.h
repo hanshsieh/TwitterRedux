@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Tweet.h"
 
 @class TweetCell;
 
@@ -16,7 +17,6 @@
 - (void)replyTweetForCell:(TweetCell*)cell;
 - (void)retweetTweetForCell:(TweetCell*)cell;
 - (void)favoriteTweetForCell:(TweetCell*)cell;
-
 @end
 
 @interface TweetCell : UITableViewCell
@@ -24,5 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favouritesCountLabel;
 @property (weak, nonatomic) id<TweetCellProtocol> delegate;
+
+- (void)initWithTweet:(Tweet*)tweet;
 @end

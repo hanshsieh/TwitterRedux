@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyBtn;
 @property (weak, nonatomic) IBOutlet UIButton *retweetBtn;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteBtn;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
 
 @end
 
@@ -54,15 +56,28 @@
                                                                               style:UIBarButtonItemStylePlain target:self
                                                                              action:@selector(replyTweet)];
     [self.replyBtn addTarget:self action:@selector(replyTweet) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (self.tweet.favorited) {
+        self.favoriteBtn.enabled = NO;
+    }
     [self.favoriteBtn addTarget:self action:@selector(createFavorite) forControlEvents:UIControlEventTouchUpInside];
     [self.retweetBtn addTarget:self action:@selector(createRetweet) forControlEvents:UIControlEventTouchUpInside];
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%ld", self.tweet.retweetCount];
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld", self.tweet.favouritesCount];
 }
 
 - (void)createFavorite {
+    NSInteger favoriteCount = [self.favoriteCountLabel.text integerValue];
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld", favoriteCount + 1];
+    self.favoriteBtn.enabled = NO;
+    
     TwitterClient *client = [TwitterClient sharedInstance];
     [client createFavoriteForStatus:self.tweet.id completion:^(NSDictionary *body, NSError *error) {
         if (error != nil) {
             NSLog(@"Fail to create favorite: %@", error);
+            NSInteger favoriteCount = [self.favoriteCountLabel.text integerValue];
+            self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld", favoriteCount - 1];
+            self.favoriteBtn.enabled = YES;
         } else {
             NSLog(@"Favorite created!");
         }

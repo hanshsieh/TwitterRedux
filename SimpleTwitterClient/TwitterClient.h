@@ -8,6 +8,7 @@
 
 #import "BDBOAuth1RequestOperationManager.h"
 #import "User.h"
+#import "Tweet.h"
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 + (TwitterClient *) sharedInstance;
@@ -15,6 +16,8 @@
 - (void)openURL:(NSURL*) url;
 - (void)homeTimelineWithParams:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
 - (void)retweetForStatus:(NSString*)statusId completion:(void(^)(NSDictionary *body, NSError *error)) completion;
-- (void)updateStatus:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion;
+- (void)retweetForTweet:(Tweet*)tweet status:(NSString *)status completion:(void(^)(NSDictionary *body, NSError *error)) completion;
+- (void)updateStatus:(NSString *)status parameters: (NSDictionary*)params completion:(void(^)(NSDictionary *body, NSError *error)) completion;
+- (void)replyForTweet:(Tweet*)tweet status:(NSString*)status completion:(void(^)(NSDictionary *body, NSError *error)) completion;
 - (void)createFavoriteForStatus:(NSString *)statusId completion:(void(^)(NSDictionary *body, NSError *error)) completion;
 @end

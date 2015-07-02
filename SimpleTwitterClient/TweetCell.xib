@@ -55,19 +55,6 @@
                             <action selector="onReplyClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jqO-BJ-WBv"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Fb-gCQ">
-                        <rect key="frame" x="129" y="96" width="50" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="HCu-cH-k6F"/>
-                            <constraint firstAttribute="width" constant="50" id="XjY-h9-xa0"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="favorite">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="onFavoriteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W0S-me-QWR"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ss-4Z-9QW">
                         <rect key="frame" x="71" y="96" width="50" height="40"/>
                         <constraints>
@@ -81,34 +68,72 @@
                             <action selector="onRetweetClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L0l-KH-hfP"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCH-11-saQ">
+                        <rect key="frame" x="123" y="121" width="14" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-br-4uj">
+                        <rect key="frame" x="197" y="121" width="14" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Fb-gCQ">
+                        <rect key="frame" x="145" y="96" width="50" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="HCu-cH-k6F"/>
+                            <constraint firstAttribute="width" constant="50" id="XjY-h9-xa0"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="favorite">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="onFavoriteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W0S-me-QWR"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="lCH-11-saQ" firstAttribute="bottom" secondItem="6ss-4Z-9QW" secondAttribute="bottom" id="0h7-Jp-pRz"/>
                     <constraint firstItem="d6f-Xi-Spg" firstAttribute="leading" secondItem="Crb-BO-Cm1" secondAttribute="trailing" constant="8" id="3os-kS-6pz"/>
                     <constraint firstItem="Ffv-NV-1jf" firstAttribute="leading" secondItem="Crb-BO-Cm1" secondAttribute="trailing" constant="8" id="8TL-JW-fEw"/>
+                    <constraint firstItem="kGe-Fb-gCQ" firstAttribute="leading" secondItem="lCH-11-saQ" secondAttribute="trailing" constant="8" id="8hP-G2-NAS"/>
+                    <constraint firstItem="lCH-11-saQ" firstAttribute="leading" secondItem="6ss-4Z-9QW" secondAttribute="trailing" constant="2" id="9vq-Km-0J3"/>
                     <constraint firstAttribute="trailing" secondItem="eJW-pe-H4a" secondAttribute="trailing" constant="8" id="Bvt-3M-e4w"/>
                     <constraint firstItem="wjx-N3-E9A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="CkD-5u-Ieb"/>
                     <constraint firstItem="6ss-4Z-9QW" firstAttribute="leading" secondItem="wjx-N3-E9A" secondAttribute="trailing" constant="8" id="Cx7-U1-r0d"/>
                     <constraint firstItem="wjx-N3-E9A" firstAttribute="top" secondItem="kGe-Fb-gCQ" secondAttribute="top" id="Dmn-hp-Rq6"/>
                     <constraint firstItem="kGe-Fb-gCQ" firstAttribute="leading" secondItem="6ss-4Z-9QW" secondAttribute="trailing" constant="8" id="H68-6F-SZE"/>
                     <constraint firstItem="wjx-N3-E9A" firstAttribute="top" secondItem="6ss-4Z-9QW" secondAttribute="top" id="Ime-r8-XS5"/>
+                    <constraint firstItem="kGe-Fb-gCQ" firstAttribute="bottom" secondItem="bYP-br-4uj" secondAttribute="bottom" id="KkD-9D-4Dd"/>
                     <constraint firstItem="eJW-pe-H4a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Owu-Qy-Kqs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="d6f-Xi-Spg" secondAttribute="trailing" constant="8" id="QZ6-fp-Fw0"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wjx-N3-E9A" secondAttribute="bottom" constant="8" id="St5-VZ-gcU"/>
                     <constraint firstItem="d6f-Xi-Spg" firstAttribute="top" secondItem="Ffv-NV-1jf" secondAttribute="bottom" constant="8" id="ZAg-DI-AQM"/>
                     <constraint firstItem="Crb-BO-Cm1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ev7-Kx-ILi"/>
+                    <constraint firstItem="bYP-br-4uj" firstAttribute="leading" secondItem="kGe-Fb-gCQ" secondAttribute="trailing" constant="2" id="ifP-0m-jQn"/>
                     <constraint firstItem="Crb-BO-Cm1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jxe-Bm-QVt"/>
                     <constraint firstItem="Ffv-NV-1jf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="kOD-IQ-gT5"/>
                     <constraint firstItem="wjx-N3-E9A" firstAttribute="top" secondItem="Crb-BO-Cm1" secondAttribute="bottom" constant="8" id="yTN-ru-Xhq"/>
                     <constraint firstItem="eJW-pe-H4a" firstAttribute="leading" secondItem="Ffv-NV-1jf" secondAttribute="trailing" constant="8" id="z9K-Al-9Up"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="H68-6F-SZE"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteBtn" destination="kGe-Fb-gCQ" id="mao-Rv-Lbp"/>
+                <outlet property="favouritesCountLabel" destination="bYP-br-4uj" id="kjO-cq-cpm"/>
+                <outlet property="retweetCountLabel" destination="lCH-11-saQ" id="qZM-fz-4fF"/>
                 <outlet property="timestampLabel" destination="eJW-pe-H4a" id="AMw-Un-O0r"/>
                 <outlet property="tweetTextLabel" destination="d6f-Xi-Spg" id="BPw-Ag-xEs"/>
                 <outlet property="userImage" destination="Crb-BO-Cm1" id="ofv-CH-BLO"/>
                 <outlet property="userNameLabel" destination="Ffv-NV-1jf" id="cEu-ZP-3lr"/>
             </connections>
-            <point key="canvasLocation" x="275.5" y="501.5"/>
+            <point key="canvasLocation" x="321.5" y="321.5"/>
         </tableViewCell>
     </objects>
     <resources>

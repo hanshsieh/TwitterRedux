@@ -68,25 +68,39 @@
 
 - (void)newTweet {
     TwitterClient *client = [TwitterClient sharedInstance];
-    [client updateStatus:self.tweetText.text completion:^(NSDictionary *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"Fail to create a tweet: %@", error);
-            return;
-        }
-        NSLog(@"New tweet id: %@", response[@"id"]);
-        if (self.tweetType == NewTweetTypeRetweet) {
-            [client retweetForStatus:self.baseTweet.id completion:^(NSDictionary *body, NSError *error) {
+    switch(self.tweetType) {
+        case NewTweetTypeNormal: {
+            [client updateStatus:self.tweetText.text parameters:nil completion:^(NSDictionary *body, NSError *error) {
                 if (error != nil) {
-                    NSLog(@"Fail to increase retweet count: %@", error);
-                    return;
+                    NSLog(@"Fail to create a tweet: %@", error);
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }
-                NSLog(@"Successfully increase the retweet count");
-                [self dismissViewControllerAnimated:YES completion:nil];
             }];
-        } else {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
         }
-    }];
+        case NewTweetTypeReply: {
+            [client replyForTweet:self.baseTweet status:self.tweetText.text completion:^(NSDictionary *body, NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Fail to reply to a tweet: %@", error);
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+            break;
+        }
+        case NewTweetTypeRetweet: {
+            [client retweetForTweet:self.baseTweet status:self.tweetText.text completion:^(NSDictionary *body, NSError *error) {
+                if (error != nil) {
+                    NSLog(@"Fail to create a tweet: %@", error);
+                } else {
+                    NSLog(@"Retweet succeed");
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -105,18 +105,7 @@ NSString * const TWEET_CELL = @"TweetCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [self.tweetsList dequeueReusableCellWithIdentifier:TWEET_CELL];
     Tweet *tweet = self.tweets[indexPath.row];
-    [cell.userImage setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
-    cell.userNameLabel.text = tweet.user.name;
-    cell.tweetTextLabel.text = tweet.text;
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
-    //Optionally for time zone conversions
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Taipei"]];
-    
-    NSString *stringFromDate = [formatter stringFromDate:tweet.createdAt];
-    cell.timestampLabel.text = stringFromDate;
+    [cell initWithTweet:tweet];
     cell.delegate = self;
     return cell;
 }
@@ -153,10 +142,18 @@ NSString * const TWEET_CELL = @"TweetCell";
 - (void)favoriteTweetForCell:(TweetCell*)cell {
     NSIndexPath *indexPath = [self.tweetsList indexPathForCell:cell];
     Tweet *tweet = self.tweets[indexPath.row];
+    
+    tweet.favouritesCount += 1;
+    tweet.favorited = YES;
+    [cell initWithTweet:tweet];
+    
     TwitterClient *client = [TwitterClient sharedInstance];
     [client createFavoriteForStatus:tweet.id completion:^(NSDictionary *body, NSError *error) {
         if (error != nil) {
             NSLog(@"Fail to create favorite: %@", error);
+            tweet.favouritesCount -= 1;
+            tweet.favorited = NO;
+            [cell initWithTweet:tweet];
         } else {
             NSLog(@"Favorite created!");
         }

@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, assign) NSInteger favouritesCount;
+@property (nonatomic, assign) BOOL favorited;
+@property (nonatomic, assign) NSInteger retweetCount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)tweetsWithArray:(NSArray *)array;
