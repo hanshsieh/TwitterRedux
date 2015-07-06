@@ -21,7 +21,7 @@
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z yyyy";
         self.createdAt = [formatter dateFromString:createdAtString];
         self.id = dictionary[@"id_str"];
-        self.favouritesCount = [dictionary[@"favourites_count"] integerValue];
+        self.favouritesCount = [dictionary[@"favorite_count"] integerValue];
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] integerValue];
     }
