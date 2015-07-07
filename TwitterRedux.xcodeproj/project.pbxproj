@@ -41,14 +41,14 @@
 /* Begin PBXFileReference section */
 		06F49AD1CE4238A49EA70EF4 /* Pods-SimpleTwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTwitterClient/Pods-SimpleTwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		5A5D5435F67CAFED44A764F2 /* libPods-SimpleTwitterClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleTwitterClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E56F7311B417826009A725C /* SimpleTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E56F7311B417826009A725C /* TwitterRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterRedux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E56F7351B417826009A725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E56F7361B417826009A725C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5E56F7381B417826009A725C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E56F7391B417826009A725C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5E56F7411B417826009A725C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E56F7441B417826009A725C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5E56F74A1B417826009A725C /* SimpleTwitterClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTwitterClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E56F74A1B417826009A725C /* TwitterReduxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterReduxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E56F74F1B417826009A725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E56F7501B417826009A725C /* SimpleTwitterClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTwitterClientTests.m; sourceTree = "<group>"; };
 		5E56F75A1B417AF5009A725C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 		5E56F7281B417826009A725C = {
 			isa = PBXGroup;
 			children = (
-				5E56F7331B417826009A725C /* SimpleTwitterClient */,
-				5E56F74D1B417826009A725C /* SimpleTwitterClientTests */,
+				5E56F7331B417826009A725C /* TwitterRedux */,
+				5E56F74D1B417826009A725C /* TwitterReduxTests */,
 				5E56F7321B417826009A725C /* Products */,
 				049307AC6CA9C7F1AD2ED2EE /* Pods */,
 				20B14061C69F2B4221F45969 /* Frameworks */,
@@ -125,13 +125,13 @@
 		5E56F7321B417826009A725C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E56F7311B417826009A725C /* SimpleTwitterClient.app */,
-				5E56F74A1B417826009A725C /* SimpleTwitterClientTests.xctest */,
+				5E56F7311B417826009A725C /* TwitterRedux.app */,
+				5E56F74A1B417826009A725C /* TwitterReduxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E56F7331B417826009A725C /* SimpleTwitterClient */ = {
+		5E56F7331B417826009A725C /* TwitterRedux */ = {
 			isa = PBXGroup;
 			children = (
 				5E56F76E1B42E90B009A725C /* Views */,
@@ -150,6 +150,7 @@
 				5E56F76A1B42D920009A725C /* TweetsViewController.m */,
 				5E56F76B1B42D920009A725C /* TweetsViewController.xib */,
 			);
+			name = TwitterRedux;
 			path = SimpleTwitterClient;
 			sourceTree = "<group>";
 		};
@@ -162,12 +163,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5E56F74D1B417826009A725C /* SimpleTwitterClientTests */ = {
+		5E56F74D1B417826009A725C /* TwitterReduxTests */ = {
 			isa = PBXGroup;
 			children = (
 				5E56F7501B417826009A725C /* SimpleTwitterClientTests.m */,
 				5E56F74E1B417826009A725C /* Supporting Files */,
 			);
+			name = TwitterReduxTests;
 			path = SimpleTwitterClientTests;
 			sourceTree = "<group>";
 		};
@@ -209,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E56F7301B417826009A725C /* SimpleTwitterClient */ = {
+		5E56F7301B417826009A725C /* TwitterRedux */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E56F7541B417826009A725C /* Build configuration list for PBXNativeTarget "SimpleTwitterClient" */;
+			buildConfigurationList = 5E56F7541B417826009A725C /* Build configuration list for PBXNativeTarget "TwitterRedux" */;
 			buildPhases = (
 				86C78AFB0BC86B5F74335B70 /* Check Pods Manifest.lock */,
 				5E56F72D1B417826009A725C /* Sources */,
@@ -223,14 +225,14 @@
 			);
 			dependencies = (
 			);
-			name = SimpleTwitterClient;
+			name = TwitterRedux;
 			productName = SimpleTwitterClient;
-			productReference = 5E56F7311B417826009A725C /* SimpleTwitterClient.app */;
+			productReference = 5E56F7311B417826009A725C /* TwitterRedux.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5E56F7491B417826009A725C /* SimpleTwitterClientTests */ = {
+		5E56F7491B417826009A725C /* TwitterReduxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E56F7571B417826009A725C /* Build configuration list for PBXNativeTarget "SimpleTwitterClientTests" */;
+			buildConfigurationList = 5E56F7571B417826009A725C /* Build configuration list for PBXNativeTarget "TwitterReduxTests" */;
 			buildPhases = (
 				5E56F7461B417826009A725C /* Sources */,
 				5E56F7471B417826009A725C /* Frameworks */,
@@ -241,9 +243,9 @@
 			dependencies = (
 				5E56F74C1B417826009A725C /* PBXTargetDependency */,
 			);
-			name = SimpleTwitterClientTests;
+			name = TwitterReduxTests;
 			productName = SimpleTwitterClientTests;
-			productReference = 5E56F74A1B417826009A725C /* SimpleTwitterClientTests.xctest */;
+			productReference = 5E56F74A1B417826009A725C /* TwitterReduxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -264,7 +266,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5E56F72C1B417826009A725C /* Build configuration list for PBXProject "SimpleTwitterClient" */;
+			buildConfigurationList = 5E56F72C1B417826009A725C /* Build configuration list for PBXProject "TwitterRedux" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -277,8 +279,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E56F7301B417826009A725C /* SimpleTwitterClient */,
-				5E56F7491B417826009A725C /* SimpleTwitterClientTests */,
+				5E56F7301B417826009A725C /* TwitterRedux */,
+				5E56F7491B417826009A725C /* TwitterReduxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -371,7 +373,7 @@
 /* Begin PBXTargetDependency section */
 		5E56F74C1B417826009A725C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E56F7301B417826009A725C /* SimpleTwitterClient */;
+			target = 5E56F7301B417826009A725C /* TwitterRedux */;
 			targetProxy = 5E56F74B1B417826009A725C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -475,7 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleTwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterRedux;
 			};
 			name = Debug;
 		};
@@ -486,7 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleTwitterClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterRedux;
 			};
 			name = Release;
 		};
@@ -504,7 +506,7 @@
 				);
 				INFOPLIST_FILE = SimpleTwitterClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterReduxTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTwitterClient.app/SimpleTwitterClient";
 			};
 			name = Debug;
@@ -519,7 +521,7 @@
 				);
 				INFOPLIST_FILE = SimpleTwitterClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TwitterReduxTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleTwitterClient.app/SimpleTwitterClient";
 			};
 			name = Release;
@@ -527,7 +529,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E56F72C1B417826009A725C /* Build configuration list for PBXProject "SimpleTwitterClient" */ = {
+		5E56F72C1B417826009A725C /* Build configuration list for PBXProject "TwitterRedux" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E56F7521B417826009A725C /* Debug */,
@@ -536,7 +538,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E56F7541B417826009A725C /* Build configuration list for PBXNativeTarget "SimpleTwitterClient" */ = {
+		5E56F7541B417826009A725C /* Build configuration list for PBXNativeTarget "TwitterRedux" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E56F7551B417826009A725C /* Debug */,
@@ -545,7 +547,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E56F7571B417826009A725C /* Build configuration list for PBXNativeTarget "SimpleTwitterClientTests" */ = {
+		5E56F7571B417826009A725C /* Build configuration list for PBXNativeTarget "TwitterReduxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E56F7581B417826009A725C /* Debug */,

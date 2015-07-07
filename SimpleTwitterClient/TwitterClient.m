@@ -12,6 +12,7 @@
 NSString * const kTwitterConsumerKey = @"SWomRUh6yFmyrrAi5IRXSQVAo";
 NSString * const kTwitterConsumerSecret = @"f6F8xaxU9shzr4oKgphaz2jV2zXDePYZU1wxgm3QxhR5jZ0ji6";
 NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
+NSString * const kAppUrlScheme = @"hanstwitterredux";
 
 @interface TwitterClient()
 
@@ -39,7 +40,8 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     self.loginCompletion = completion;
     
     [self.requestSerializer removeAccessToken];
-    [self fetchRequestTokenWithPath:@"oauth/request_token" method:@"GET" callbackURL:[NSURL URLWithString:@"hanstwitterclient://oauth"] scope:nil success:^(BDBOAuth1Credential *requestToken) {
+    NSURL *callBackUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@://oauth", kAppUrlScheme] ];
+    [self fetchRequestTokenWithPath:@"oauth/request_token" method:@"GET" callbackURL:callBackUrl scope:nil success:^(BDBOAuth1Credential *requestToken) {
         NSLog(@"Get request token, requestToken: %@", requestToken.token);
         NSURL *authURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.twitter.com/oauth/authorize?oauth_token=%@", requestToken.token]];
         NSLog(@"Auth URl: %@", authURL);
