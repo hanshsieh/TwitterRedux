@@ -13,6 +13,7 @@
 #import "User.h"
 #import "Tweet.h"
 #import "TweetsViewController.h"
+#import "HamburgerMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,11 +33,15 @@
     User *user = [User currentUser];
     if (user != nil) {
         NSLog(@"Welcome %@", user.name);
-        self.window.rootViewController = [TweetsViewController viewControllerWithNaviBar];
+        self.window.rootViewController = [[HamburgerMenuViewController alloc] initWithMainVC:[TweetsViewController viewControllerWithNaviBar] menuVC:nil];
+        //self.window.rootViewController = [[HamburgerMenuViewController alloc] initWithMainVC:[[TweetsViewController alloc] init] menuVC:nil];
+        //self.window.rootViewController = [[HamburgerMenuViewController alloc] initWithMainVC:nil menuVC:nil];
+        //self.window.rootViewController = [[TweetsViewController alloc] init];
     } else {
         NSLog(@"Not logged in");
         self.window.rootViewController = [[LoginViewController alloc] init];
     }
+    //self.window.rootViewController = [[HamburgerMenuViewController alloc] init];
     
     [self.window makeKeyAndVisible];
     return YES;

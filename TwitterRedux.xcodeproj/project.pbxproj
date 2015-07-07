@@ -25,6 +25,8 @@
 		5E56F7801B44171B009A725C /* NewTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E56F77E1B44171B009A725C /* NewTweetViewController.xib */; };
 		5E56F7841B442B32009A725C /* TweetDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E56F7821B442B32009A725C /* TweetDetailsViewController.m */; };
 		5E56F7851B442B32009A725C /* TweetDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E56F7831B442B32009A725C /* TweetDetailsViewController.xib */; };
+		5E66EEC11B4C048A00F0F2B1 /* HamburgerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E66EEBF1B4C048A00F0F2B1 /* HamburgerMenuViewController.m */; };
+		5E66EEC21B4C048A00F0F2B1 /* HamburgerMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E66EEC01B4C048A00F0F2B1 /* HamburgerMenuViewController.xib */; };
 		96E75A182F7A749670A220D2 /* libPods-SimpleTwitterClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D5435F67CAFED44A764F2 /* libPods-SimpleTwitterClient.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,9 @@
 		5E56F7811B442B32009A725C /* TweetDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetDetailsViewController.h; sourceTree = "<group>"; };
 		5E56F7821B442B32009A725C /* TweetDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetDetailsViewController.m; sourceTree = "<group>"; };
 		5E56F7831B442B32009A725C /* TweetDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetDetailsViewController.xib; sourceTree = "<group>"; };
+		5E66EEBE1B4C048A00F0F2B1 /* HamburgerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamburgerMenuViewController.h; sourceTree = "<group>"; };
+		5E66EEBF1B4C048A00F0F2B1 /* HamburgerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerMenuViewController.m; sourceTree = "<group>"; };
+		5E66EEC01B4C048A00F0F2B1 /* HamburgerMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HamburgerMenuViewController.xib; sourceTree = "<group>"; };
 		6BB637090328F484653C7D3F /* Pods-SimpleTwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleTwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleTwitterClient/Pods-SimpleTwitterClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +209,9 @@
 				5E56F7811B442B32009A725C /* TweetDetailsViewController.h */,
 				5E56F7821B442B32009A725C /* TweetDetailsViewController.m */,
 				5E56F7831B442B32009A725C /* TweetDetailsViewController.xib */,
+				5E66EEBE1B4C048A00F0F2B1 /* HamburgerMenuViewController.h */,
+				5E66EEBF1B4C048A00F0F2B1 /* HamburgerMenuViewController.m */,
+				5E66EEC01B4C048A00F0F2B1 /* HamburgerMenuViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E56F76D1B42D920009A725C /* TweetsViewController.xib in Resources */,
+				5E66EEC21B4C048A00F0F2B1 /* HamburgerMenuViewController.xib in Resources */,
 				5E56F77B1B42E95A009A725C /* TweetCell.xib in Resources */,
 				5E56F7451B417826009A725C /* LaunchScreen.xib in Resources */,
 				5E56F7801B44171B009A725C /* NewTweetViewController.xib in Resources */,
@@ -353,6 +362,7 @@
 				5E56F7681B42C9B8009A725C /* User.m in Sources */,
 				5E56F7651B42C9AA009A725C /* Tweet.m in Sources */,
 				5E56F7841B442B32009A725C /* TweetDetailsViewController.m in Sources */,
+				5E66EEC11B4C048A00F0F2B1 /* HamburgerMenuViewController.m in Sources */,
 				5E56F7371B417826009A725C /* main.m in Sources */,
 				5E56F75D1B417AF5009A725C /* LoginViewController.m in Sources */,
 				5E56F76C1B42D920009A725C /* TweetsViewController.m in Sources */,
