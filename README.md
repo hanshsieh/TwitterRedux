@@ -29,6 +29,6 @@ Time spent: `12 hr`
 
 ### Walkthrough
 
-https://youtu.be/zsA3ftZlG1o
+![walkthrough video](hw4_demo.gif)
 
 
