@@ -49,9 +49,6 @@
     NSString *createAtStr = [formatter stringFromDate:self.tweet.createdAt];
     self.createdAtLabel.text = createAtStr;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Home"
-                                                                             style:UIBarButtonItemStylePlain target:self
-                                                                            action:@selector(goBack)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Reply"
                                                                               style:UIBarButtonItemStylePlain target:self
                                                                              action:@selector(replyTweet)];
@@ -82,10 +79,6 @@
             NSLog(@"Favorite created!");
         }
     }];
-}
-
-- (void)goBack {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)replyTweet {

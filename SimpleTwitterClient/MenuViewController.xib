@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
+            <connections>
+                <outlet property="menuTable" destination="mJt-vD-IHZ" id="Sy7-Mg-4hz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mJt-vD-IHZ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mJt-vD-IHZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9mV-pK-E3T"/>
+                <constraint firstAttribute="trailing" secondItem="mJt-vD-IHZ" secondAttribute="trailing" id="BEP-Pq-jp8"/>
+                <constraint firstAttribute="bottom" secondItem="mJt-vD-IHZ" secondAttribute="bottom" id="TrS-gW-ikM"/>
+                <constraint firstItem="mJt-vD-IHZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zvn-3p-obW"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="mJt-vD-IHZ"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="9mV-pK-E3T"/>
+                    <exclude reference="BEP-Pq-jp8"/>
+                    <exclude reference="TrS-gW-ikM"/>
+                    <exclude reference="zvn-3p-obW"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="mJt-vD-IHZ"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="9mV-pK-E3T"/>
+                    <include reference="BEP-Pq-jp8"/>
+                    <include reference="TrS-gW-ikM"/>
+                    <include reference="zvn-3p-obW"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

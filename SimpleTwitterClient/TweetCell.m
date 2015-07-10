@@ -20,6 +20,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAuthorClicked:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.userImage setUserInteractionEnabled:YES];
+    [self.userImage addGestureRecognizer:tapGesture];
+}
+
+- (void)onAuthorClicked:(UITapGestureRecognizer* ) gesture {
+    [self.delegate openAuthorProfileForCell:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

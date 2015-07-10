@@ -10,7 +10,7 @@
 
 @interface HamburgerMenuViewController : UIViewController
 
-- (void)setHamburgerMenuVC:(UIViewController *)vc;
-- (void)setMainVC:(UIViewController *)vc;
+- (void)attachHamburgerMenuVC:(UIViewController *)vc;
+- (void)attachMainVC:(UIViewController *)vc;
 - (instancetype)initWithMainVC:(UIViewController *)mainVC menuVC:(UIViewController*)menuVC;
 @end

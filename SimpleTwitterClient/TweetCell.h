@@ -17,6 +17,7 @@
 - (void)replyTweetForCell:(TweetCell*)cell;
 - (void)retweetTweetForCell:(TweetCell*)cell;
 - (void)favoriteTweetForCell:(TweetCell*)cell;
+- (void)openAuthorProfileForCell:(TweetCell*)cell;
 @end
 
 @interface TweetCell : UITableViewCell

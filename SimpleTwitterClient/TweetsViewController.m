@@ -14,6 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "NewTweetViewController.h"
 #import "TweetDetailsViewController.h"
+#import "UserProfileViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetCellProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsList;
@@ -32,6 +33,12 @@ NSString * const TWEET_CELL = @"TweetCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Fix the problem that navigation bar overlaps the view
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     self.navigationItem.title = @"Home";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                              style:UIBarButtonItemStylePlain target:self
@@ -49,12 +56,6 @@ NSString * const TWEET_CELL = @"TweetCell";
     [self.tweetsList addSubview:self.refreshControl];
     
     [self fetchTweets];
-    /*TwitterClient *client = [TwitterClient sharedInstance];
-    [client homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-        for (Tweet *tweet in tweets) {
-            NSLog(@"Tweets: %@", tweet.text);
-        }
-    }];*/
 }
 
 - (void)refresh:(id)sender {
@@ -81,7 +82,8 @@ NSString * const TWEET_CELL = @"TweetCell";
 - (void)fetchTweets {
     NSLog(@"Querying tweets...");
     TwitterClient *client = [TwitterClient sharedInstance];
-    [client homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+    
+    void(^cb)(NSArray *tweets, NSError *error) = ^(NSArray *tweets, NSError *error){
         [self.refreshControl endRefreshing];
         if (error != nil) {
             NSLog(@"Fail to load tweets: %@", error);
@@ -89,7 +91,18 @@ NSString * const TWEET_CELL = @"TweetCell";
         }
         self.tweets = tweets;
         [self.tweetsList reloadData];
-    }];
+    };
+    
+    switch (self.tweetsSourceType) {
+        case TweetsSourceTypeHomeTimeline:
+            NSLog(@"Loading home timeline");
+            [client homeTimelineWithParams:nil completion:cb];
+            break;
+        case TweetsSourceTypeMentionsTimeline:
+            NSLog(@"Loading mentions timeline");
+            [client mentionsTimelineWithParams:nil completion:cb];
+            break;
+    }
 }
 
 #pragma mark Tweets list
@@ -123,8 +136,9 @@ NSString * const TWEET_CELL = @"TweetCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tweetsList deselectRowAtIndexPath:indexPath animated:NO];
     Tweet *tweet = self.tweets[indexPath.row];
-    UIViewController *vc = [TweetDetailsViewController viewControllerWithNaviBar:tweet];
-    [self presentViewController:vc animated:YES completion:nil];
+    TweetDetailsViewController *vc = [[TweetDetailsViewController alloc] init];
+    vc.tweet = tweet;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark Tweet operations
@@ -158,6 +172,15 @@ NSString * const TWEET_CELL = @"TweetCell";
             NSLog(@"Favorite created!");
         }
     }];
+}
+
+
+- (void)openAuthorProfileForCell:(TweetCell*)cell {
+    NSIndexPath *indexPath = [self.tweetsList indexPathForCell:cell];
+    Tweet *tweet = self.tweets[indexPath.row];
+    UserProfileViewController *userProfileVC = [[UserProfileViewController alloc] init];
+    userProfileVC.user = tweet.user;
+    [self.navigationController pushViewController:userProfileVC animated:YES];
 }
 
 /*

@@ -15,21 +15,29 @@
 @property (strong, nonatomic) UIViewController *hamburgerMenuVC;
 @property (assign, nonatomic) BOOL edgePanning;
 @property (assign, nonatomic) CGPoint edgePanningTranslation;
+@property (assign, nonatomic) BOOL menuOpened;
 @end
 
 @implementation HamburgerMenuViewController
 
-CGFloat const edgePanSize = 50;
+CGFloat const EDGE_PAN_SIZE = 50;
+CGFloat const SLIDE_THREASHOLD = 0.3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgePanning = false;
+    self.menuOpened = false;
     if (self.hamburgerMenuVC != nil) {
         [self setSubViewController:self.hamburgerMenuVC fromVC:nil forView:self.hamburgerMenuView];
     }
     if (self.mainVC != nil) {
         [self setSubViewController:self.mainVC fromVC:nil forView:self.mainView];
     }
+}
+
+- (instancetype)init {
+    self = [super init];
+    return self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +56,7 @@ CGFloat const edgePanSize = 50;
     if (newVC == oldVC) {
         return;
     }
+    
     if (oldVC != nil) {
         [oldVC.view removeFromSuperview];
         [oldVC willMoveToParentViewController:nil];
@@ -57,7 +66,11 @@ CGFloat const edgePanSize = 50;
     if (newVC != nil) {
         [newVC willMoveToParentViewController:self];
         [self addChildViewController:newVC];
-        newVC.view.frame = view.bounds;
+        CGRect bounds = view.bounds;
+        //bounds.origin.x = oldCenter.x - bounds.size.width / 2;
+        //bounds.origin.y = oldCenter.y - bounds.size.height / 2;
+        newVC.view.frame = bounds;
+        newVC.view.bounds = bounds;
         [view addSubview:newVC.view];
         [newVC didMoveToParentViewController:self];
     }
@@ -78,7 +91,7 @@ CGFloat const edgePanSize = 50;
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan: {
             CGPoint loc = [gesture locationInView:gesture.view];
-            if (loc.x <= edgePanSize) {
+            if (loc.x <= EDGE_PAN_SIZE) {
                 self.edgePanning = YES;
                 self.edgePanningTranslation = loc;
             }
@@ -107,10 +120,24 @@ CGFloat const edgePanSize = 50;
             [UIView animateWithDuration:0.3 animations:^{
                 CGFloat mainViewLeft = self.mainView.center.x - self.mainView.bounds.size.width / 2;
                 CGFloat newMainViewLeft;
-                if (mainViewLeft < self.view.center.x) {
-                    newMainViewLeft = 0;
+                CGFloat slideSize;
+                if (self.menuOpened) {
+                    slideSize = self.view.bounds.size.width - mainViewLeft;
                 } else {
+                    slideSize = mainViewLeft;
+                }
+                BOOL shouldOpenMenu;
+                if (slideSize < self.view.bounds.size.width * SLIDE_THREASHOLD) {
+                    shouldOpenMenu = self.menuOpened;
+                } else {
+                    shouldOpenMenu = !self.menuOpened;
+                }
+                if (shouldOpenMenu) {
                     newMainViewLeft = self.hamburgerMenuView.center.x + self.hamburgerMenuView.bounds.size.width / 2;
+                    self.menuOpened = true;
+                } else {
+                    newMainViewLeft = 0;
+                    self.menuOpened = false;
                 }
                 self.mainView.center = CGPointMake(newMainViewLeft + self.mainView.bounds.size.width / 2, self.mainView.center.y);
             }];
